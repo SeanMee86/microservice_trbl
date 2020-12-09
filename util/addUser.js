@@ -1,4 +1,4 @@
-const iterableUrl = 'https://api.iterable.com/api/';
+const { iterableUrl } = require('../config/keys');
 const getUsers = require('./getUsers');
 const emailValidation = require('../util/validateEmail');
 

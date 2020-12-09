@@ -1,4 +1,4 @@
-const iterableUrl = 'https://api.iterable.com/api/';
+const { iterableUrl } = require('../config/keys');
 
 module.exports = function(req, res, axios){
     return new Promise(resolve => {
