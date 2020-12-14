@@ -6,7 +6,7 @@ module.exports = function(req, res, axios) {
     const {hasErrors, message} = emailValidation(email);
     if(hasErrors) {
         res.send(message);
-    }else{
+    } else {
         const event_data = {
             "email": email,
             "eventName": "newUserSignup",
