@@ -14,9 +14,10 @@ module.exports = function(req, res, axios){
                 } else {
                     emailListIds = user.dataFields.emailListIds;
                 }
-                emailListIds.push(797785);
+                if(!emailListIds.includes(797785))
+                    emailListIds.push(797785);
                 const user_data = {
-                    email: !userNotFound ? user.email : req.body.email,
+                    email: req.body.email,
                     dataFields: {
                         signupSource: 'NewSite Form',
                         emailListIds
