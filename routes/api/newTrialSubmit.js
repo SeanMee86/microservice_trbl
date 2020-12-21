@@ -1,33 +1,21 @@
 const express = require('express');
-const axios = require('../../config/axiosConfig');
 const router = module.exports = express.Router();
-const addOrUpdateUser = require('../../util/addOrUpdateUser');
 
 /**
  * @swagger
  *
  * paths:
- *   /api/newTrialSubmit:
- *     post:
- *       summary: Creates or Updates User
- *       consumes:
- *         - application/json
+ *   /api/testing:
+ *     get:
+ *       summary: Testing EBS
  *       produces:
  *         - application/json
- *       requestBody:
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 email:
- *                   type: string
  *       responses:
  *         '200':
- *           description: Event message signaling that the newTrialSubmit event has been triggered
+ *           description: message that request has worked
  */
 
-router.route('/api/newTrialSubmit')
-    .post((req, res) => {
-        addOrUpdateUser(req, res, axios);
+router.route('/api/testing')
+    .get((req, res) => {
+        res.send(process.env.SOME_KEY)
     })

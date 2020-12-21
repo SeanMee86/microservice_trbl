@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const basicAuth = require('express-basic-auth');
 const swaggerUi = require('swagger-ui-express');
-require('dotenv').config();
+const isProd = process.argv[1].split('/')[1] === 'var';
+if(!isProd){
+    require('dotenv').config();
+}
 const routes = require('./routes');
 const setHeaders = require('./util/setHeaders');
 const port = process.env.PORT || 8000;
@@ -19,7 +22,7 @@ app.use(
     "/api-docs",
     basicAuth({
         users: {
-            [process.env.SWAGGER_USERNAME]: process.env.SWAGGER_PASSWORD
+            'user': 'password'
         },
         challenge: true
     }),
